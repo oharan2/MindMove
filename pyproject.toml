@@ -1,31 +1,31 @@
-[build-system]
-requires = ["setuptools>=68"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "mindmove"
 version = "0.1.0"
 description = "Decode imagined left versus right hand movement from prerecorded EEG."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
-    "torch",
-    "mne",
-    "numpy",
-    "scipy",
-    "scikit-learn",
-    "matplotlib",
-    "streamlit",
-    "pandas",
-    "pyyaml",
-    "joblib",
+    "torch==2.14.1",
+    "mne==1.13.2",
+    "numpy==2.5.4",
+    "scipy==1.18.1",
+    "scikit-learn==1.9.1",
+    "matplotlib==3.11.2",
+    "streamlit==1.66.1",
+    "pandas==3.0.6",
+    "pyyaml==6.0.3",
+    "joblib==1.6.0",
 ]
 
-[project.optional-dependencies]
-dev = ["pytest"]
+[tool.poetry]
+packages = [{include = "mindmove", from = "src"}]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.poetry.group.dev.dependencies]
+pytest = "==9.1.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 pythonpath = ["src", "."]

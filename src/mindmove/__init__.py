@@ -6,8 +6,8 @@ import os
 import sys
 from pathlib import Path
 
-if sys.version_info < (3, 11):
-    raise RuntimeError("MindMove requires Python 3.11 or newer.")
+if sys.version_info < (3, 12):
+    raise RuntimeError("MindMove requires Python 3.12 or newer.")
 
 _ROOT = Path(__file__).resolve().parents[2]
 os.environ.setdefault("MPLCONFIGDIR", str(_ROOT / ".mplconfig"))

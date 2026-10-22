@@ -51,16 +51,12 @@ The CNN is the 1D network in the plan: Conv1d 64→32 (kernel 15), batch norm, E
 
 ## Install
 
-Use Python 3.11 or 3.12. The commands below were run with Python 3.12.
+Use Python 3.12 or newer. The commands below were run with Python 3.12. [Poetry](https://python-poetry.org/) installs the pinned dependencies and this package into `.venv`.
 
 ```bash
-python3.12 -m venv .venv
+poetry install
 source .venv/bin/activate
-pip install -r requirements.txt
-pip install -e . --no-deps
 ```
-
-`--no-deps` keeps the PyTorch build selected by `requirements.txt` from being replaced.
 
 ## Commands
 
@@ -169,6 +165,8 @@ The unit tests use synthetic EEG and do not download the dataset. They check the
 ## Layout
 
 ```text
+pyproject.toml              Package metadata and dependencies
+poetry.lock                 Locked dependency set
 app.py                      Streamlit dashboard
 configs/default.yaml        Subjects 1–20, runs 4 / 8 / 12
 src/mindmove/data.py        Download, cache, and splits
