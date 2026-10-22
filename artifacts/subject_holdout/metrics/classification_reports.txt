@@ -1,0 +1,29 @@
+csp_lda
+              precision    recall  f1-score   support
+
+        left      0.542     0.352     0.427        91
+       right      0.512     0.697     0.590        89
+
+    accuracy                          0.522       180
+   macro avg      0.527     0.524     0.509       180
+weighted avg      0.528     0.522     0.508       180
+
+cnn
+              precision    recall  f1-score   support
+
+        left      0.714     0.110     0.190        91
+       right      0.512     0.955     0.667        89
+
+    accuracy                          0.528       180
+   macro avg      0.613     0.532     0.429       180
+weighted avg      0.614     0.528     0.426       180
+
+majority
+              precision    recall  f1-score   support
+
+        left      0.506     1.000     0.672        91
+       right      0.000     0.000     0.000        89
+
+    accuracy                          0.506       180
+   macro avg      0.253     0.500     0.336       180
+weighted avg      0.256     0.506     0.340       180

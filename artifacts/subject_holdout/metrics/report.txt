@@ -1,0 +1,37 @@
+MindMove evaluation
+Training, validation, and test sets use disjoint subjects [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], [13, 14, 15, 16], and [17, 18, 19, 20], with imagery runs [4, 8, 12]. This is a separate unseen-subject experiment, not the default held-out-run score.
+
+Trial counts
+  train      {'n': 540, 'n_left': 274, 'n_right': 266}
+  validation {'n': 180, 'n_left': 90, 'n_right': 90}
+  test       {'n': 180, 'n_left': 91, 'n_right': 89}
+Observed sampling rates (Hz): [160.0]
+Resampled any recording: False
+Excluded recordings: 0
+
+Nominal chance accuracy for a balanced two-class task is 0.500. The training majority class is left (tie break: lowest class index).
+
+Validation
+  majority    accuracy 0.500  balanced 0.500  macro-F1 0.333
+    left   precision 0.500  recall 1.000  f1 0.667  support 90
+    right  precision 0.000  recall 0.000  f1 0.000  support 90
+  csp_lda     accuracy 0.622  balanced 0.622  macro-F1 0.616
+    left   precision 0.598  recall 0.744  f1 0.663  support 90
+    right  precision 0.662  recall 0.500  f1 0.570  support 90
+  cnn         accuracy 0.594  balanced 0.594  macro-F1 0.577
+    left   precision 0.660  recall 0.389  f1 0.490  support 90
+    right  precision 0.567  recall 0.800  f1 0.664  support 90
+
+Test
+  majority    accuracy 0.506  balanced 0.500  macro-F1 0.336
+    left   precision 0.506  recall 1.000  f1 0.672  support 91
+    right  precision 0.000  recall 0.000  f1 0.000  support 89
+  csp_lda     accuracy 0.522  balanced 0.524  macro-F1 0.509
+    left   precision 0.542  recall 0.352  f1 0.427  support 91
+    right  precision 0.512  recall 0.697  f1 0.590  support 89
+  cnn         accuracy 0.528  balanced 0.532  macro-F1 0.429
+    left   precision 0.714  recall 0.110  f1 0.190  support 91
+    right  precision 0.512  recall 0.955  f1 0.667  support 89
+
+Per-subject CNN test accuracy ranged from 0.489 to 0.556.
+These figures describe this sample of trials. Trials from the same person are not independent. The test subjects were absent from training; this is not the default score.

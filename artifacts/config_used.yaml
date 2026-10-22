@@ -1,0 +1,59 @@
+dataset:
+  subjects:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  train_runs:
+  - 4
+  val_runs:
+  - 8
+  test_runs:
+  - 12
+  path: data/eegbci
+preprocessing:
+  sfreq: 160
+  low_freq: 8
+  high_freq: 30
+  epoch_start: 1.0
+  epoch_end: 3.0
+  reference: average
+training:
+  seed: 42
+  batch_size: 32
+  learning_rate: 0.001
+  epochs: 50
+  patience: 8
+  device: auto
+model:
+  type: cnn1d
+  num_classes: 2
+  dropout: 0.4
+  conv1_channels: 32
+  conv1_kernel: 15
+  conv2_channels: 64
+  conv2_kernel: 7
+  pool_kernel: 4
+  csp_components: 4
+  csp_reg: ledoit_wolf
+evaluation:
+  protocol: held_out_run
+paths:
+  artifacts: artifacts
+  cache: artifacts/cache

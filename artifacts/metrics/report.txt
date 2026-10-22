@@ -1,0 +1,37 @@
+MindMove evaluation
+Training, validation, and test sets are different recordings (runs 4, 8, and 12) from the same subjects (1–20). This measures generalization to a new session, not to unseen people.
+
+Trial counts
+  train      {'n': 300, 'n_left': 150, 'n_right': 150}
+  validation {'n': 300, 'n_left': 153, 'n_right': 147}
+  test       {'n': 300, 'n_left': 152, 'n_right': 148}
+Observed sampling rates (Hz): [160.0]
+Resampled any recording: False
+Excluded recordings: 0
+
+Nominal chance accuracy for a balanced two-class task is 0.500. The training majority class is left (tie break: lowest class index).
+
+Validation
+  majority    accuracy 0.510  balanced 0.500  macro-F1 0.338
+    left   precision 0.510  recall 1.000  f1 0.675  support 153
+    right  precision 0.000  recall 0.000  f1 0.000  support 147
+  csp_lda     accuracy 0.500  balanced 0.501  macro-F1 0.500
+    left   precision 0.511  recall 0.471  f1 0.490  support 153
+    right  precision 0.491  recall 0.531  f1 0.510  support 147
+  cnn         accuracy 0.583  balanced 0.583  macro-F1 0.583
+    left   precision 0.588  recall 0.614  f1 0.601  support 153
+    right  precision 0.579  recall 0.551  f1 0.564  support 147
+
+Test
+  majority    accuracy 0.507  balanced 0.500  macro-F1 0.336
+    left   precision 0.507  recall 1.000  f1 0.673  support 152
+    right  precision 0.000  recall 0.000  f1 0.000  support 148
+  csp_lda     accuracy 0.497  balanced 0.498  macro-F1 0.494
+    left   precision 0.504  recall 0.414  f1 0.455  support 152
+    right  precision 0.491  recall 0.581  f1 0.533  support 148
+  cnn         accuracy 0.597  balanced 0.597  macro-F1 0.596
+    left   precision 0.610  recall 0.566  f1 0.587  support 152
+    right  precision 0.585  recall 0.628  f1 0.606  support 148
+
+Per-subject CNN test accuracy ranged from 0.400 to 0.800.
+These figures describe this sample of trials. Trials from the same person are not independent, and this protocol does not estimate accuracy on unseen people.
