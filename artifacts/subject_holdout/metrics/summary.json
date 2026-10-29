@@ -1,0 +1,514 @@
+{
+  "experiment": {
+    "protocol": "unseen_subjects",
+    "description": "Training, validation, and test sets use disjoint subjects [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], [13, 14, 15, 16], and [17, 18, 19, 20], with imagery runs [4, 8, 12]. This is a separate unseen-subject experiment, not the default held-out-run score.",
+    "subjects": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "runs": [
+      4,
+      8,
+      12
+    ],
+    "sfreq": 160.0,
+    "bandpass_hz": [
+      8.0,
+      30.0
+    ],
+    "epoch_window_s": [
+      1.0,
+      3.0
+    ],
+    "n_samples": 320,
+    "reference": "average",
+    "seed": 42,
+    "device": "cpu",
+    "csp_components": 4,
+    "csp_reg": "ledoit_wolf",
+    "normalization": "CNN inputs use a per-channel z-score fit on training epochs only. CSP+LDA uses the band-pass filtered epochs directly.",
+    "label_map": {
+      "T1": "left (0)",
+      "T2": "right (1)",
+      "T0": "excluded"
+    },
+    "cnn": {
+      "dropout": 0.4,
+      "epochs_requested": 50,
+      "epochs_ran": 21,
+      "best_epoch": 13,
+      "best_val_balanced_accuracy": 0.5944444444444444,
+      "seconds": 2.0885804610006744
+    },
+    "versions": {
+      "python": "3.12.15",
+      "torch": "2.14.1+cu130",
+      "mne": "1.13.2",
+      "numpy": "2.5.4",
+      "sklearn": "1.9.1"
+    }
+  },
+  "counts": {
+    "train": {
+      "n": 540,
+      "n_left": 274,
+      "n_right": 266
+    },
+    "validation": {
+      "n": 180,
+      "n_left": 90,
+      "n_right": 90
+    },
+    "test": {
+      "n": 180,
+      "n_left": 91,
+      "n_right": 89
+    }
+  },
+  "exclusions": [],
+  "sampling": {
+    "target_hz": 160.0,
+    "observed_hz": [
+      160.0
+    ],
+    "resampled_any": false
+  },
+  "chance_accuracy": 0.5,
+  "majority_class": {
+    "class_index": 0,
+    "class_name": "left",
+    "train_counts": {
+      "left": 274,
+      "right": 266
+    },
+    "tie_break": "lowest class index"
+  },
+  "validation": {
+    "majority": {
+      "n_trials": 180,
+      "n_subjects": 4,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.3333333333333333,
+      "per_class": {
+        "left": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "support": 90
+        },
+        "right": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 90
+        }
+      },
+      "confusion_matrix": [
+        [
+          90,
+          0
+        ],
+        [
+          90,
+          0
+        ]
+      ],
+      "per_subject": [
+        {
+          "subject": 13,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5111111111111111,
+          "balanced_accuracy": 0.5
+        },
+        {
+          "subject": 14,
+          "n_trials": 45,
+          "n_left": 22,
+          "n_right": 23,
+          "accuracy": 0.4888888888888889,
+          "balanced_accuracy": 0.5
+        },
+        {
+          "subject": 15,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5111111111111111,
+          "balanced_accuracy": 0.5
+        },
+        {
+          "subject": 16,
+          "n_trials": 45,
+          "n_left": 22,
+          "n_right": 23,
+          "accuracy": 0.4888888888888889,
+          "balanced_accuracy": 0.5
+        }
+      ]
+    },
+    "csp_lda": {
+      "n_trials": 180,
+      "n_subjects": 4,
+      "accuracy": 0.6222222222222222,
+      "balanced_accuracy": 0.6222222222222222,
+      "macro_f1": 0.6164932948991102,
+      "per_class": {
+        "left": {
+          "precision": 0.5982142857142857,
+          "recall": 0.7444444444444445,
+          "f1": 0.6633663366336634,
+          "support": 90
+        },
+        "right": {
+          "precision": 0.6617647058823529,
+          "recall": 0.5,
+          "f1": 0.569620253164557,
+          "support": 90
+        }
+      },
+      "confusion_matrix": [
+        [
+          67,
+          23
+        ],
+        [
+          45,
+          45
+        ]
+      ],
+      "per_subject": [
+        {
+          "subject": 13,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5111111111111111,
+          "balanced_accuracy": 0.5
+        },
+        {
+          "subject": 14,
+          "n_trials": 45,
+          "n_left": 22,
+          "n_right": 23,
+          "accuracy": 0.6222222222222222,
+          "balanced_accuracy": 0.6225296442687747
+        },
+        {
+          "subject": 15,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.8222222222222222,
+          "balanced_accuracy": 0.8231225296442688
+        },
+        {
+          "subject": 16,
+          "n_trials": 45,
+          "n_left": 22,
+          "n_right": 23,
+          "accuracy": 0.5333333333333333,
+          "balanced_accuracy": 0.5335968379446641
+        }
+      ]
+    },
+    "cnn": {
+      "n_trials": 180,
+      "n_subjects": 4,
+      "accuracy": 0.5944444444444444,
+      "balanced_accuracy": 0.5944444444444444,
+      "macro_f1": 0.5765524797782863,
+      "per_class": {
+        "left": {
+          "precision": 0.660377358490566,
+          "recall": 0.3888888888888889,
+          "f1": 0.48951048951048953,
+          "support": 90
+        },
+        "right": {
+          "precision": 0.5669291338582677,
+          "recall": 0.8,
+          "f1": 0.663594470046083,
+          "support": 90
+        }
+      },
+      "confusion_matrix": [
+        [
+          35,
+          55
+        ],
+        [
+          18,
+          72
+        ]
+      ],
+      "per_subject": [
+        {
+          "subject": 13,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.6,
+          "balanced_accuracy": 0.6017786561264822
+        },
+        {
+          "subject": 14,
+          "n_trials": 45,
+          "n_left": 22,
+          "n_right": 23,
+          "accuracy": 0.4888888888888889,
+          "balanced_accuracy": 0.48023715415019763
+        },
+        {
+          "subject": 15,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.7111111111111111,
+          "balanced_accuracy": 0.7114624505928854
+        },
+        {
+          "subject": 16,
+          "n_trials": 45,
+          "n_left": 22,
+          "n_right": 23,
+          "accuracy": 0.5777777777777777,
+          "balanced_accuracy": 0.5701581027667983
+        }
+      ]
+    }
+  },
+  "test": {
+    "majority": {
+      "n_trials": 180,
+      "n_subjects": 4,
+      "accuracy": 0.5055555555555555,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.33579335793357934,
+      "per_class": {
+        "left": {
+          "precision": 0.5055555555555555,
+          "recall": 1.0,
+          "f1": 0.6715867158671587,
+          "support": 91
+        },
+        "right": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 89
+        }
+      },
+      "confusion_matrix": [
+        [
+          91,
+          0
+        ],
+        [
+          89,
+          0
+        ]
+      ],
+      "per_subject": [
+        {
+          "subject": 17,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5111111111111111,
+          "balanced_accuracy": 0.5
+        },
+        {
+          "subject": 18,
+          "n_trials": 45,
+          "n_left": 22,
+          "n_right": 23,
+          "accuracy": 0.4888888888888889,
+          "balanced_accuracy": 0.5
+        },
+        {
+          "subject": 19,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5111111111111111,
+          "balanced_accuracy": 0.5
+        },
+        {
+          "subject": 20,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5111111111111111,
+          "balanced_accuracy": 0.5
+        }
+      ]
+    },
+    "csp_lda": {
+      "n_trials": 180,
+      "n_subjects": 4,
+      "accuracy": 0.5222222222222223,
+      "balanced_accuracy": 0.5241387825657489,
+      "macro_f1": 0.5085714285714286,
+      "per_class": {
+        "left": {
+          "precision": 0.5423728813559322,
+          "recall": 0.3516483516483517,
+          "f1": 0.4266666666666667,
+          "support": 91
+        },
+        "right": {
+          "precision": 0.512396694214876,
+          "recall": 0.6966292134831461,
+          "f1": 0.5904761904761905,
+          "support": 89
+        }
+      },
+      "confusion_matrix": [
+        [
+          32,
+          59
+        ],
+        [
+          27,
+          62
+        ]
+      ],
+      "per_subject": [
+        {
+          "subject": 17,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5111111111111111,
+          "balanced_accuracy": 0.5187747035573123
+        },
+        {
+          "subject": 18,
+          "n_trials": 45,
+          "n_left": 22,
+          "n_right": 23,
+          "accuracy": 0.5111111111111111,
+          "balanced_accuracy": 0.5039525691699605
+        },
+        {
+          "subject": 19,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5777777777777777,
+          "balanced_accuracy": 0.5681818181818181
+        },
+        {
+          "subject": 20,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.4888888888888889,
+          "balanced_accuracy": 0.4990118577075099
+        }
+      ]
+    },
+    "cnn": {
+      "n_trials": 180,
+      "n_subjects": 4,
+      "accuracy": 0.5277777777777778,
+      "balanced_accuracy": 0.5324731448326954,
+      "macro_f1": 0.42857142857142855,
+      "per_class": {
+        "left": {
+          "precision": 0.7142857142857143,
+          "recall": 0.10989010989010989,
+          "f1": 0.19047619047619047,
+          "support": 91
+        },
+        "right": {
+          "precision": 0.5120481927710844,
+          "recall": 0.9550561797752809,
+          "f1": 0.6666666666666666,
+          "support": 89
+        }
+      },
+      "confusion_matrix": [
+        [
+          10,
+          81
+        ],
+        [
+          4,
+          85
+        ]
+      ],
+      "per_subject": [
+        {
+          "subject": 17,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5333333333333333,
+          "balanced_accuracy": 0.5424901185770751
+        },
+        {
+          "subject": 18,
+          "n_trials": 45,
+          "n_left": 22,
+          "n_right": 23,
+          "accuracy": 0.5555555555555556,
+          "balanced_accuracy": 0.5474308300395256
+        },
+        {
+          "subject": 19,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.4888888888888889,
+          "balanced_accuracy": 0.5
+        },
+        {
+          "subject": 20,
+          "n_trials": 45,
+          "n_left": 23,
+          "n_right": 22,
+          "accuracy": 0.5333333333333333,
+          "balanced_accuracy": 0.5424901185770751
+        }
+      ]
+    }
+  },
+  "waveform_examples": {
+    "channels": [
+      "C3",
+      "Cz",
+      "C4"
+    ],
+    "left": "S017_R04_T001",
+    "right": "S017_R04_T000"
+  },
+  "figures": [
+    "figures/cnn_loss.png",
+    "figures/accuracy_comparison.png",
+    "figures/confusion_matrices.png",
+    "figures/per_subject_accuracy.png",
+    "figures/sample_waveforms.png"
+  ]
+}
